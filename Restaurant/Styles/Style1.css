@@ -1,0 +1,15 @@
+html{
+    font-size: 25px;
+    font-family: sans-serif;
+}
+.Header{
+    width: 100%;
+    height:50px;
+    top: 0;
+    left:0;
+    position: fixed;
+    border: dashed;
+    border-color: rgba(255, 246, 252, 0.66);
+    font-size: 1.5em;
+    background: #bd26d9;
+}

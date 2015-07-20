@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container" id="customer">
+    <!-- NavigationBar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Janhvi Da Dhaba</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">Reservations
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a data-toggle="modal" data-target="#ReserveTable">Reserve a Table</a></li>
+                            <li><a data-toggle="modal" data-target="#EditReserve">Edit Reservation</a></li>
+                            <li><a data-toggle="modal" data-target="#CancelReserve">Cancel Reservation</a></li>
+                        </ul>
+                    </li>
+                    <li><a data-toggle="modal" data-target="#myMenuModal">Menu</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a data-toggle="modal" data-target="#myLoginModal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li><a href="#AdminControl"><span class="glyphicon glyphicon-user"></span> Admin </a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="myLoginModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Login Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Administrator Login</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                    <form role="form">
+                    <div class="form-group">
+                        <label for="email">Email address:</label>
+                        <input type="email" class="form-control" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Password:</label>
+                        <input type="password" class="form-control" id="pwd">
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox"> Remember me</label>
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                     </form>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            <!-- Model Content End -->
+        </div>
+    </div>
+    <!-- Login Model End -->
+    <!-- Table Reservation Modal -->
+    <div class="modal fade" id="ReserveTable" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Reservation Table Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Table Reservation</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="firstname">First Name:</label>
+                            <input type="text" class="form-control" id="firstname">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastname">Last Name:</label>
+                            <input type="text" class="form-control" id="lastname">
+                        </div>
+                         <div class="form-group">
+                            <label for="phone">Phone Number:</label>
+                            <input type="text" class="form-control" id="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="emailid">Email ID:</label>
+                            <input type="email" class="form-control" id="emailid">
+                        </div>
+                        <div class="form-group">
+                            <label for="noppl">Table For</label>
+                            <input type="number" class="form-control" id="noppl">
+                        </div>
+                        <div class="form-group">
+                            <label for="pref">Table Preference:</label>
+                            <select class="form-control" id="pref">
+                                <option>Indoor</option>
+                                <option>Outdoor</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="Date">Date & Time:</label>
+                            <input type="datetime-local" class="form-control" id="Date">
+                        </div>
+                        <button type="submit" class="btn btn-default">Reserve</button>
+                    </form>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            <!-- Model Content End -->
+        </div>
+    </div>
+    <!-- Reservation Table Model End -->
+    <!-- Edit Reservation Modal -->
+    <div class="modal fade" id="EditReserve" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Reservation Table Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Table Reservation</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="fname">First Name:</label>
+                            <input type="text" class="form-control" id="fname">
+                        </div>
+                        <div class="form-group">
+                            <label for="lname">Last Name:</label>
+                            <input type="text" class="form-control" id="lname">
+                        </div>
+                        <div class="form-group">
+                            <label for="Conf">Confirmation ID</label>
+                            <input type="text" class="form-control" id="Conf">
+                        </div>
+                        <button type="submit" class="btn btn-default" > <a data-dismiss="model" data-toggle="model" data-target="#ReserveTable"> Edit Reservation</a> </button>
+                    </form>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            <!-- Model Content End -->
+        </div>
+    </div>
+    <!-- Edit Reservation  Model End -->
+    <!-- Cancel Reservation Modal -->
+    <div class="modal fade" id="CancelReserve" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Reservation Table Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Table Reservation</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="frname">First Name:</label>
+                            <input type="text" class="form-control" id="frname">
+                        </div>
+                        <div class="form-group">
+                            <label for="ltname">Last Name:</label>
+                            <input type="text" class="form-control" id="ltname">
+                        </div>
+                        <div class="form-group">
+                            <label for="Confirm">Confirmation ID</label>
+                            <input type="text" class="form-control" id="Confirm">
+                        </div>
+                        <button type="submit" class="btn btn-default" data-toggle="model" data-target="#ReserveTable">Cancel Reservation</button>
+                    </form>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            <!-- Model Content End -->
+        </div>
+    </div>
+    <!-- Cancel Reservation  Model End -->
+
+    <!-- Menu Model -->
+    <div class="modal fade" id="myMenuModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Login Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#home">Starters</a></li>
+                        <li><a data-toggle="tab" href="#menu1">Entree</a></li>
+                        <li><a data-toggle="tab" href="#menu2">Desserts</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div id="home" class="tab-pane fade in active">
+                            <h3>Starters</h3>
+                            <p>
+                            <div class="dropdown">
+                                <button type="button" class="btn btn-default btn-lg btn-block" type="button" data-toggle="dropdown"> Appetizers
+                                    <span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li class="list-group-item"><span class="badge">$3.99</span>Paneer Pakora</li>
+                                    <li class="list-group-item"><span class="badge">$3.99</span>Veg Samosa</li>
+                                    <li class="list-group-item"><span class="badge">$3.99</span>Paneer Chilli</li>
+                                </ul>
+                            </div>
+                            <div class="dropdown">
+                                <button type="button" class="btn btn btn-default btn-lg btn-block" type="button" data-toggle="dropdown"> Soup
+                                    <span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li class="list-group-item"><span class="badge">$3.99</span>Sweet Corn Soup</li>
+                                    <li class="list-group-item"><span class="badge">$3.99</span>Tomato Soup</li>
+                                    <li class="list-group-item"><span class="badge">$3.99</span>Basil Soup</li>
+                                </ul>
+                            </div>
+                            <div class="dropdown">
+                                <button type="button" class="btn btn btn-default btn-lg btn-block" type="button" data-toggle="dropdown"> Salad
+                                    <span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li class="list-group-item"><span class="badge">$6</span>House Salad</li>
+                                    <li class="list-group-item"><span class="badge">$9</span>Paneer Salad</li>
+                                    <li class="list-group-item"><span class="badge">$14</span>Grilled Jhinga Saladi</li>
+                                </ul>
+                            </div>
+                            </p>
+                        </div>
+                        <div id="menu1" class="tab-pane fade">
+                            <h3>Entrees</h3>
+                            <p>
+                            <div class="dropdown">
+                                <button type="button" class="btn btn-default btn-lg btn-block" type="button" data-toggle="dropdown"> Vegetarian
+                                    <span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li class="list-group-item"><span class="badge">$3.99</span>Paneer Pakora</li>
+                                    <li class="list-group-item"><span class="badge">$3.99</span>Veg Samosa</li>
+                                    <li class="list-group-item"><span class="badge">$3.99</span>Paneer Chilli</li>
+                                </ul>
+                            </div>
+                            <div class="dropdown">
+                                <button type="button" class="btn btn btn-default btn-lg btn-block" type="button" data-toggle="dropdown"> Chicken
+                                    <span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li class="list-group-item"><span class="badge">$3.99</span>Sweet Corn Soup</li>
+                                    <li class="list-group-item"><span class="badge">$3.99</span>Tomato Soup</li>
+                                    <li class="list-group-item"><span class="badge">$3.99</span>Basil Soup</li>
+                                </ul>
+                            </div>
+                            <div class="dropdown">
+                                <button type="button" class="btn btn btn-default btn-lg btn-block" type="button" data-toggle="dropdown"> Seafood
+                                    <span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li class="list-group-item"><span class="badge">$6</span>House Salad</li>
+                                    <li class="list-group-item"><span class="badge">$9</span>Paneer Salad</li>
+                                    <li class="list-group-item"><span class="badge">$14</span>GrilledJhinga Saladi</li>
+                                </ul>
+                            </div>
+                            </p>
+                        </div>
+                        <div id="menu2" class="tab-pane fade">
+                            <h3>Menu 2</h3>
+                            <p>Some content in menu 2.</p>
+                        </div>
+                    </div>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            <!-- Model Content End -->
+        </div>
+    </div>
+
+    <!--Menu Model End -->
+    <!-- Image Corousal -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img src="Images/1.jpg" alt="Chania">
+                <div class="carousel-caption">
+                    <h3>Chania</h3>
+                    <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="Images/2.jpg" alt="Chania">
+                <div class="carousel-caption">
+                    <h3>Chania</h3>
+                    <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="Images/5.jpg" alt="Flower">
+                <div class="carousel-caption">
+                    <h3>Flowers</h3>
+                    <p>Beatiful flowers in Kolymbari, Crete.</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="Images/4.jpg" alt="Flower">
+                <div class="carousel-caption">
+                    <h3>Flowers</h3>
+                    <p>Beatiful flowers in Kolymbari, Crete.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+<!--Corousal End -->
+    <!-- Admin Control -->
+    <div class="container-fluid" id="AdminControl" >
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#AdmonHome">Home</a></li>
+            <li><a data-toggle="tab" href="#Reservations">Reservations</a></li>
+            <li><a data-toggle="tab" href="#prof">Profile & Settings</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="AdmonHome" class="tab-pane fade in active">
+                <h3>Home</h3>
+                <p>
+                    <h3>Auto Assign Table</h3>
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Auto Assign
+                        <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">ON</a></li>
+                        <li><a href="#">OFF</a></li>
+
+                    </ul>
+                </div>
+                </p>
+            </div>
+            <div id="Reservations" class="tab-pane fade">
+                <h3>Reservations</h3>
+                <p>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+
+                            <th>Reservation Number</th>
+                            <th>Table Number</th>
+                            <th>Party Size</th>
+                            <th>Date & Time</th>
+                            <th>Change Reservation</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>R001</td>
+                            <td>T001</td>
+                            <td>4</td>
+                            <td>dolor</td>
+                            <td><button >Change</button></td>
+                        </tr>
+                        <tr>
+                            <td>R001</td>
+                            <td>T001</td>
+                            <td>4</td>
+                            <td>dolor</td>
+                            <td><button >Change</button></td>
+                        </tr>
+                        <tr>
+                            <td>R001</td>
+                            <td>T001</td>
+                            <td>4</td>
+                            <td>dolor</td>
+                            <td><button >Change</button></td>
+                        </tr>
+                        <tr>
+                            <td>R001</td>
+                            <td>T001</td>
+                            <td>4</td>
+                            <td>dolor</td>
+                            <td><button >Change</button></td>
+                        </tr>
+                        <tr>
+                            <td>R001</td>
+                            <td>T001</td>
+                            <td>4</td>
+                            <td>dolor</td>
+                            <td><button >Change</button></td>
+                        </tr>
+                        <tr>
+                            <td>R001</td>
+                            <td>T001</td>
+                            <td>4</td>
+                            <td>dolor</td>
+                            <td><button >Change</button></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                    </p>
+            </div>
+            <div id="prof" class="tab-pane fade">
+                <h3>Profile And Settings</h3>
+                <p>
+                <form role="form">
+                <h3>Change Contact Information</h3>
+                    <div class="form-group">
+
+                        <label for="Name">Name:</label>
+                        <input type="text" class="form-control" id="Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="pno">Phone Number:</label>
+                        <input type="text" class="form-control" id="pno">
+                    </div>
+                    <div class="form-group">
+                        <label for="eid">Email ID:</label>
+                        <input type="text" class="form-control" id="eid">
+                    </div>
+                    <button type="submit" class="btn btn-default" >Save Changes</button>
+                </form>
+                </p>
+
+                <p>
+                <form role="form">
+                    <h3>Change Restaurant Schedule</h3>
+                    <div class="form-group">
+
+                        <label for="day">Day</label>
+                        <input type="week" class="form-control" id="day">
+                    </div>
+                    <div class="form-group">
+                        <label for="otime">Opening Time:</label>
+                        <input type="datetime-local" class="form-control" id="otime">
+                    </div>
+                    <div class="form-group">
+                        <label for="ctime">Closing Time</label>
+                        <input type="text" class="form-control" id="ctime">
+                    </div>
+                    <button type="submit" class="btn btn-default" >Save Changes</button>
+                </form>
+                </p>
+
+            </div>
+        </div>
+    <!-- Admin Control End -->
+</div>
+<!-- Bootstrap core JavaScript
+        ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="../../dist/js/bootstrap.min.js"></script>
+<!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+<script src="../../assets/js/vendor/holder.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+</body>
+</html>
